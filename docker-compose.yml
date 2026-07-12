@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: notifyhub_db
+    restart: always
+    environment:
+      POSTGRES_USER: notifyhub_user
+      POSTGRES_PASSWORD: notifyhub_pass
+      POSTGRES_DB: notifyhub_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
